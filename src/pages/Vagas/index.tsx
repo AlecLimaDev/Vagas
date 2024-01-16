@@ -1,21 +1,19 @@
-import { useEffect, useState } from "react";
-import apiVagas from "../../helpers/vagas";
+import useVagas from "./hooks/useVagas";
+import * as S from "./style";
 
-
-interface GitHub {
-  state: string,
-  locked: false,
-  assignee: null,
-  created_at: string,
-  updated_at: string,
-  closed_at: null,
+interface Job {
+  state: string;
+  locked: false;
+  assignee: null;
+  created_at: string;
+  updated_at: string;
+  closed_at: null;
   url: string;
   repository_url: string;
   labels_url: string;
   comments_url: string;
   events_url: string;
   html_url: string;
-  id: number;
   node_id: number;
   number: number;
   title: string;
@@ -48,17 +46,30 @@ interface GitHub {
 }
 
 const Vagas = () => {
-  const [data, setData] = useState<GitHub[]>([]);
-
-useEffect(() => {
-  const controller = new AbortController()
-
-  
-}, [])
-
+  const { filteredJob } = useVagas();
   return (
-    <div>Vagas</div>
-  )
+    <>
+      <S.Wrapper>
+        {filteredJob.map((jobs: Job, index) => (
+          <>
+            <S.Container key={index}>
+              <div>
+                <img src={jobs.user.avatar_url} />
+                <a href={jobs.user.organizations_url}></a>
+                <h2>{jobs.title}</h2>
+              </div>
+              <p>{jobs.created_at}</p>
+              <p>{jobs.updated_at}</p>
+
+              <a href={jobs.html_url} target="_blank">
+                <button>Ver vaga no GitHub</button>
+              </a>
+            </S.Container>
+          </>
+        ))}
+      </S.Wrapper>
+    </>
+  );
 };
 
 export default Vagas;
