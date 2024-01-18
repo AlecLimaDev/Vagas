@@ -1,28 +1,25 @@
+import Input from "../../components/Input/Input";
 import useVagas from "./hooks/useVagas";
 import * as S from "./style";
+import { FaGithub } from "react-icons/fa";
 
-interface Job {
-  state: string;
-  locked: false;
-  assignee: null;
-  created_at: string;
-  updated_at: string;
-  closed_at: null;
+export interface Job {
   url: string;
   repository_url: string;
   labels_url: string;
   comments_url: string;
   events_url: string;
   html_url: string;
-  node_id: number;
+  id: string;
+  node_id: string;
   number: number;
   title: string;
   user: {
     login: string;
-    id: number;
-    node_id: number;
+    id: string;
+    node_id: string;
     avatar_url: string;
-    gravatar_id: string;
+    gravatar_id: number;
     url: string;
     html_url: string;
     followers_url: string;
@@ -37,11 +34,30 @@ interface Job {
     type: string;
   };
   labels: {
-    id: number;
-    node_id: number;
-    url: string;
     name: string;
     color: string;
+  };
+
+  state: string;
+  locked: boolean;
+  assignee: null;
+  milestone: null;
+  comments: number;
+  created_at: string;
+  updated_at: string;
+  closed_at: null;
+  author_association: string;
+  active_lock_reason: string;
+  body: string;
+  reactions: {
+    url: string;
+    total_count: number;
+    laugh: number;
+    hooray: number;
+    confused: number;
+    heart: number;
+    rocket: number;
+    eyes: number;
   };
 }
 
@@ -49,21 +65,32 @@ const Vagas = () => {
   const { filteredJob } = useVagas();
   return (
     <>
+      <S.Section>
+        <Input />
+      </S.Section>
       <S.Wrapper>
         {filteredJob.map((jobs: Job, index) => (
           <>
             <S.Container key={index}>
               <div>
-                <img src={jobs.user.avatar_url} />
-                <a href={jobs.user.organizations_url}></a>
-                <h2>{jobs.title}</h2>
+                <img src={jobs.user.avatar_url} alt={jobs.user.login} />
+                <h2>{jobs.user.login}</h2>
               </div>
-              <p>{jobs.created_at}</p>
-              <p>{jobs.updated_at}</p>
-
-              <a href={jobs.html_url} target="_blank">
-                <button>Ver vaga no GitHub</button>
-              </a>
+              <section>
+                <h2>{jobs.title}</h2>
+                <h3>Comentários: {jobs.comments}</h3>
+                <h4>{jobs.created_at}</h4>
+                <h4>{jobs.updated_at}</h4>
+              </section>
+              <section>
+                <a href={jobs.html_url} target="_blank">
+                  <button>
+                    Ver vaga no GitHub
+                    <FaGithub />
+                  </button>
+                </a>
+                <p>{jobs.labels.color}</p>
+              </section>
             </S.Container>
           </>
         ))}
