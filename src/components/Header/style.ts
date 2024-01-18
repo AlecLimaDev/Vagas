@@ -10,8 +10,6 @@ export const sHeader = styled.nav`
             color: white;
           }
 
-
-
           ul li a {
             list-style: none;
             color: white;

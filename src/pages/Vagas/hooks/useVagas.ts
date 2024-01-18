@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import apiVagas from "../../../helpers/vagas";
 import { AxiosError } from "axios";
+import { apiVagas } from "../../../services/fetch-frontendbr";
 
 interface Job {
   html_url: string;
@@ -31,15 +31,41 @@ const useVagas = () => {
 
   useEffect(() => {
     const controller = new AbortController();
-    async function handleData() {
+
+    async function fetchData(apiEndpoint: string) {
       try {
-        const { data } = await apiVagas.get("/frontendbr/vagas/issues", {
+        const { data } = await apiVagas.get(apiEndpoint, {
           signal: controller.signal,
         });
-        setData(data);
+        return data;
       } catch (error: unknown) {
         if (error instanceof AxiosError) {
           throw new Error("Falha na Requisição");
+        }
+      }
+    }
+
+    async function handleData() {
+      try {
+        const endpoints = [
+          "/frontendbr/vagas/issues",
+          "/developersRJ/vagas/issues",
+          "/devfsa/vagas/issues",
+          "/Empregos-dev/Vagas-dev/issues",
+          "/programadores-br/geral/issues",
+          "/react-brasil/vagas/issues",
+        ];
+
+        const requests = endpoints.map(async (endpoint) => {
+          return fetchData(endpoint);
+        });
+
+        const responses = await Promise.all(requests);
+        const mergedData = responses.flat();
+        setData(mergedData);
+      } catch (error: unknown) {
+        if (error instanceof AxiosError) {
+          throw new Error("Erro na Requisição");
         }
       }
     }

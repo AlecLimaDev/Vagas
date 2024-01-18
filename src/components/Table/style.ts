@@ -16,7 +16,6 @@ export const sTable = styled.div`
         color: white;
     }
 
-    padding: 40px;
 
             div {
                 display: flex;
