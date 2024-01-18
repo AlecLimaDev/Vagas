@@ -10,7 +10,7 @@ const Footer = () => {
         <img src={"src/assets/eu.png"} alt="my-photo" />
         <a 
         target="_blank"
-        href="">Alec Lima </a>
+        href="https://portfolio-aleclimadev.vercel.app/">Alec Lima </a>
         <p> | Repositório </p>
         <FaGithub />
         <a href="https://github.com/AlecLimaDev/Vagas">GitHub</a>

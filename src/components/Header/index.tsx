@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import * as S from "./style"
+import { HTMLAttributes } from "react";
 
-const Header = () => {
+type HeaderProps = HTMLAttributes<HTMLElement>;
+
+const Header = ({children, ...rest}: HeaderProps) => {
   return (
     <>
-    <S.sHeader>
+    <S.sHeader {...rest}>
+      {children}
       <ul>
         <li>
           <h1>BRVAGAS-DEV</h1>

@@ -6,33 +6,93 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
 `;
 
+
+export const Section = styled.section`
+  display: flex
+  
+
+  div {
+
+    height: 200px;
+    background-color: #fff;
+  }
+`
+
+
 export const Container = styled.div`
-  width: 20%;
+  width: 25%;
   max-height: 600px;
   border: 2px solid #fff;
+  height: 50vh;
   padding: 10px;
-  height: 40vh;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #282828;
+  
+ div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+ }
 
-        p {
-            background-color: #555555;
-            width: 50%;
-            border-radius: 15%;
-            font-family: sans-serif;
-            font-size: 12px;
-            color: #fff;
-        }
+ article {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
 
+ article p {
+  background-color: blue;
+ }
 
-        div {
-            disply: flex;
-            justify-content: space-evenly;
-            align-items: center;
-        }
-
-
-        img {
-            width: 50px;
+        div  img {
+          width: 60px;
         } 
+
+        div h2{
+          font-family: sans-serif;
+        }
+
+        section {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+
+
+      
+
+
+        section h3 {
+          background-color: blue;
+          width: 60%;
+          text-align: center;
+          font-size: 16px;
+          font-family: sans-serif;
+          color: white;
+          border-radius: 10px;
+
+        }
+
+        section h4 {
+          background-color: #555555;
+          text-align: center;
+          font-family: sans-serif;
+          color: #fff;
+          border-radius: 10px;
+        }
+
+
+
+        button { 
+          background-color: orange;
+          padding: 10px;
+          border-radius: 10px;
+          cursor: pointer;
+          color: #fff;
+          font-size: 18px;
+        }
 
 
 
