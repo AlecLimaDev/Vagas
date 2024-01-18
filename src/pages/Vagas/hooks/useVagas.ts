@@ -3,6 +3,7 @@ import apiVagas from "../../../helpers/vagas";
 import { AxiosError } from "axios";
 
 interface Job {
+  numero: number;
   state: string;
   locked: false;
   assignee: null;
