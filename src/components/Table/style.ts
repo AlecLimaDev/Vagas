@@ -8,7 +8,6 @@ export const sTable = styled.div`
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
-    gap: 10px;
 
 
     h1 {
@@ -21,6 +20,7 @@ export const sTable = styled.div`
                 display: flex;
                 justify-content: space-evenly;
                 align-items: center;
+                width: 50%;
             }
 
 

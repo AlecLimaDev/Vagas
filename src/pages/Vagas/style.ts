@@ -8,47 +8,41 @@ export const Wrapper = styled.div`
 
 
 export const Section = styled.section`
-  display: flex
-  
-
-  div {
-
-    height: 200px;
-    background-color: #fff;
-  }
+  background: #9933CC;
 `
 
 
 export const Container = styled.div`
-  width: 25%;
+  width: 20%;
   max-height: 600px;
-  border: 2px solid #fff;
+  margin: 10px;
+  border: 2px solid black;
   height: 50vh;
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
   background-color: #282828;
   
- div {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: space-between;
- }
+      div {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+      }
 
- article {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-}
+      article {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+      }
 
- article p {
-  background-color: blue;
- }
+        article p {
+          background-color: blue;
+        }
 
-        div  img {
-          width: 60px;
-        } 
+            div  img {
+              width: 60px;
+            } 
 
         div h2{
           font-family: sans-serif;
@@ -60,10 +54,6 @@ export const Container = styled.div`
           gap: 10px;
         }
 
-
-      
-
-
         section h3 {
           background-color: blue;
           width: 60%;
@@ -72,7 +62,6 @@ export const Container = styled.div`
           font-family: sans-serif;
           color: white;
           border-radius: 10px;
-
         }
 
         section h4 {
@@ -82,8 +71,6 @@ export const Container = styled.div`
           color: #fff;
           border-radius: 10px;
         }
-
-
 
         button { 
           background-color: orange;
@@ -95,10 +82,9 @@ export const Container = styled.div`
         }
 
 
-
-  h2 {
-    font-size: 18px;
-    font-family: sans-serif;
-    color: #fff;
-  }
+        h2 {
+          font-size: 18px;
+          font-family: sans-serif;
+          color: #fff;
+        }
 `;

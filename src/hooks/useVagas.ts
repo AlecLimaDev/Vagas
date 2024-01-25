@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { AxiosError } from "axios";
-import { apiVagas } from "../../../services/fetch-frontendbr";
+import { apiVagas } from "../services/fetch-frontendbr";
 
 interface Job {
   html_url: string;
@@ -28,6 +28,10 @@ interface Job {
 const useVagas = () => {
   const [data, setData] = useState<Job[]>([]);
   const [search, setSearch] = useState("");
+
+  const filteredJob = data.filter(
+    (job: Job) => data.length === 0 || job.title.toLowerCase().includes(search)
+  );
 
   useEffect(() => {
     const controller = new AbortController();
@@ -77,11 +81,6 @@ const useVagas = () => {
       controller.abort();
     };
   }, []);
-
-  const filteredJob = data.filter(
-    (job: Job) =>
-      search.length === 0 || job.title.toLowerCase().includes(search)
-  );
 
   return {
     filteredJob,

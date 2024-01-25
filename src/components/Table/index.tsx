@@ -1,6 +1,6 @@
-import  { useMemo } from "react";
-import useVagas from "../../pages/Vagas/hooks/useVagas";
+import { useMemo } from "react";
 import * as S from "./style";
+import useVagas from "../../hooks/useVagas";
 
 const Table = () => {
   const { filteredJob } = useVagas();
@@ -30,8 +30,10 @@ const Table = () => {
 
   return (
     <S.sTable>
-      <h1>Dados em tempo real</h1>
-      <p>Vagas: <span>{totalItens}</span></p>
+      <h1>Vagas em tempo real</h1>
+      <p>
+        Vagas: <span>{totalItens}</span>
+      </p>
     </S.sTable>
   );
 };
