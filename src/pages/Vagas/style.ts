@@ -70,6 +70,7 @@ export const Container = styled.div`
           font-family: sans-serif;
           color: #fff;
           border-radius: 10px;
+          padding: 5px;
         }
 
         button { 
@@ -87,4 +88,16 @@ export const Container = styled.div`
           font-family: sans-serif;
           color: #fff;
         }
+
+
+        @media (max-width: 476px) {
+          display: flex;
+          flex-wrap: wrap;
+          justify-contennt: center;
+          width: 100%
+         }
+
+
+
+      
 `;
